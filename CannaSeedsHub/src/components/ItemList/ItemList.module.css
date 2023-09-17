@@ -1,0 +1,9 @@
+.cardContainer {
+    max-width: 85%;
+    margin: 0 auto;
+  }
+  
+  .cardImage {
+    width: 100%;
+    height: auto;
+  }
