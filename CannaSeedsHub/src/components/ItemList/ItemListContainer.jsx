@@ -1,16 +1,15 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import { getProducts } from "../../services";
+import { useParams } from "react-router-dom";
 import ItemList from "./ItemList";
 
 const ItemListContainer = () => {
-  const [items, setItems] = useState([]);
+  const [item, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { categoryId } = useParams();
 
   useEffect(() => {
     console.log("useEffect", categoryId);
-
     setIsLoading(true);
 
     getProducts(categoryId).then((response) => {
@@ -19,7 +18,7 @@ const ItemListContainer = () => {
     });
   }, [categoryId]);
 
-  return <ItemList items={items} isLoading={isLoading} />;
+  return <ItemList items={item} isLoading={isLoading} />;
 };
 
 export default ItemListContainer;

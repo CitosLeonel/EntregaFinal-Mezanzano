@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 import ItemCount from "../ItemCount/ItemCount";
 
-const ItemDetail = ({ items, isLoading }) => {
+const ItemDetail = ({ items, isLoading, addItem }) => {
   if (isLoading) {
-    return <h2>Loading products...</h2>;
+    return <h2>Loading product...</h2>;
   }
 
   if (!items) {
@@ -15,7 +15,7 @@ const ItemDetail = ({ items, isLoading }) => {
       <div className="row g-0">
         <div className="col-md-4">
           <img
-            src={`src/images/${items.imageId}`}
+            src={`/images/${items.imageId}`}
             className="img-fluid rounded-start"
             alt="plant image"
           />
@@ -25,9 +25,9 @@ const ItemDetail = ({ items, isLoading }) => {
             <h5 className="card-title">{items.title}</h5>
             <p className="card-text">{items.description}</p>
             <div className="card-footer">
-              <small className="card-text">${items.price}</small>
-              <p className="card-text">Stock {items.stock}</p>
-              <ItemCount stock={items.stock} initial={1} onAdd={(count) => {}} />
+              <small className="card-text">$ {items.price}</small>
+              <p className="card-text">Stock: {items.stock}</p>
+              <ItemCount stock={items.stock} initial={1} onAdd={addItem} />
             </div>
           </div>
         </div>
@@ -39,6 +39,7 @@ const ItemDetail = ({ items, isLoading }) => {
 ItemDetail.propTypes = {
   items: PropTypes.object,
   isLoading: PropTypes.bool,
+  addItem: PropTypes.func,
 };
 
 export default ItemDetail;

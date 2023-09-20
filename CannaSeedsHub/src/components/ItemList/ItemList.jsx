@@ -1,12 +1,11 @@
 import styles from "./ItemList.module.css";
 import propTypes from "prop-types";
 import { Link } from "react-router-dom";
-
 import { useEffect, useState } from "react";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 
 const ItemList = ({ isLoading }) => {
-  const [items, setItem] = useState([]);
+  const [items, setItems] = useState([]);
   const [cartCount, setCartCount] = useState(0);
 
   const handleAddToCart = (count) => {
@@ -25,7 +24,7 @@ const ItemList = ({ isLoading }) => {
           ...doc.data(),
         }));
 
-        setItem(products);
+        setItems(products);
       } catch (error) {
         console.error("Error fetching products:", error);
       }
@@ -49,7 +48,7 @@ const ItemList = ({ isLoading }) => {
           <div key={items.id} className="col">
             <div className={`card h-100 ${styles.cardContainer}`}>
               <img
-                src={items.imageId}
+                src={`/images/${items.imageId}`}
                 className={`card-img-top ${styles.cardImage}`}
                 alt="seed image"
               />
@@ -58,7 +57,7 @@ const ItemList = ({ isLoading }) => {
                 <p className="card-text">{items.categoryId}</p>
               </div>
               <div className="card-footer">
-                <small className="card-text">${items.price}</small>
+                <small className="card-text">$ {items.price}</small>
               </div>
               <Link to={`/item/${items.id}`} className="btn btn-success">
                 View Details

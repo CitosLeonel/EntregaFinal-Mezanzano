@@ -9,7 +9,7 @@ import {
   getFirestore,
 } from "firebase/firestore";
 
-// getProduct
+
 export const getProduct = (id) => {
   return new Promise((resolve, reject) => {
     const db = getFirestore();
@@ -19,7 +19,7 @@ export const getProduct = (id) => {
     getDoc(itemDoc)
       .then((doc) => {
         if (doc.exists()) {
-          resolve({ id: doc.id, ...doc.data() });
+          resolve({ id: doc.id,...doc.data() });
         } else {
           resolve(null);
         }
@@ -54,4 +54,13 @@ export const getProducts = (categoryId) => {
         reject(error);
       });
   });
+};
+
+
+export const createOrder = (orden) => {
+  const db = getFirestore ();
+
+  const ordersCollection = collection(db, "orders");
+
+  return addDoc(ordersCollection, orden);
 };

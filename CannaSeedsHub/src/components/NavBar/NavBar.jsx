@@ -1,5 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import CartWidget from "../CartWidget/CartWidget";
+import styles from "./NavBar.module.css";
 import logoImage from "../../assets/images/logo.png";
 
 const NavBar = () => {
@@ -7,7 +8,7 @@ const NavBar = () => {
     <nav className="navbar navbar-light bg-success">
       <div className="container-fluid d-flex align-items-center">
         <Link className="navbar-brand" to="/">
-          <img src={logoImage} alt="logo" className="logo-img" />
+          <img src={logoImage} alt="logo" className={styles["logo-img"]}/>
         </Link>
 
         <form className="d-flex mx-auto w-50" role="search">
@@ -21,9 +22,9 @@ const NavBar = () => {
             Serch
           </button>
         </form>
-
-        {/* CartWidget */}
-        <CartWidget />
+        <Link to="/Cart">
+          <CartWidget />
+        </Link>
       </div>
 
       <div className="container-fluid d-flex justify-content-center">
