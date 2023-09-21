@@ -1,16 +1,12 @@
 import styles from "./ItemList.module.css";
 import propTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 
 const ItemList = ({ isLoading }) => {
+  
   const [items, setItems] = useState([]);
-  const [cartCount, setCartCount] = useState(0);
-
-  const handleAddToCart = (count) => {
-    setCartCount(cartCount + count);
-  };
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -44,22 +40,22 @@ const ItemList = ({ isLoading }) => {
       <div
         className={`row row-cols-1 row-cols-md-3 g-4 ${styles.cardContainer}`}
       >
-        {items.map((items) => (
-          <div key={items.id} className="col">
+        {items.map((item) => (
+          <div key={item.id} className="col">
             <div className={`card h-100 ${styles.cardContainer}`}>
               <img
-                src={`/images/${items.imageId}`}
+                src={`/images/${item.imageId}`}
                 className={`card-img-top ${styles.cardImage}`}
                 alt="seed image"
               />
               <div className="card-body">
-                <h5 className="card-title">{items.title}</h5>
-                <p className="card-text">{items.categoryId}</p>
+                <h5 className="card-title">{item.title}</h5>
+                <p className="card-text">{item.categoryId}</p>
               </div>
               <div className="card-footer">
-                <small className="card-text">$ {items.price}</small>
+                <small className="card-text">$ {item.price}</small>
               </div>
-              <Link to={`/item/${items.id}`} className="btn btn-success">
+              <Link to={`/item/${item.id}`} className="btn btn-success">
                 View Details
               </Link>
             </div>

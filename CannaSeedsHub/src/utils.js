@@ -8,19 +8,15 @@ export const getCartQuantity = (cart) => {
   return count;
 };
 
-
 export const getCartTotal = (cart) => {
-    return cart.reduce((acc, items) => acc + items.quantity * items.price, 0);
+  return cart.reduce((acc, item) => acc + item.quantity * item.price, 0);
 };
 
-
-
-
 export const mapCartToOrderItems = (cart) => {
-  return cart.map(items => ({
-    id: items.id,
-    quantity: items.quantity,
-    price: items.price,
-    title: items.title,
+  return cart.map((item) => ({
+    id: item.id,
+    quantity: item.quantity,
+    price: item.price,
+    title: item.title,
   }));
 };

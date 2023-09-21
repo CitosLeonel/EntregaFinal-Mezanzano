@@ -5,7 +5,7 @@ const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
   const isInCart = (id) => {
-    const itemInCart = cart.find((items) => items.id === id);
+    const itemInCart = cart.find((item) => item.id === id);
     return !!itemInCart;
   };
 
@@ -13,15 +13,15 @@ const CartProvider = ({ children }) => {
     const itemInCart = isInCart(product.id);
 
     if (itemInCart) {
-      const newCart = cart.map((items) => {
-        if (items.id === product.id) {
+      const newCart = cart.map((item) => {
+        if (item.id === product.id) {
           return {
-            ...items,
-            quantity: items.quantity + quantity,
+            ...item,
+            quantity: item.quantity + quantity,
           };
         }
 
-        return items;
+        return item;
       });
       setCart(newCart);
     } else {
@@ -30,7 +30,7 @@ const CartProvider = ({ children }) => {
   };
 
   const removeItem = (id) => {
-    const newCart = cart.filter((items) => items.id !== id);
+    const newCart = cart.filter((item) => item.id !== id);
     setCart(newCart);
   };
 

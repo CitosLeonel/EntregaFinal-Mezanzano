@@ -14,6 +14,7 @@ const ItemListContainer = () => {
 
     getProducts(categoryId).then((response) => {
       setItems(response);
+
       setIsLoading(false);
     });
   }, [categoryId]);

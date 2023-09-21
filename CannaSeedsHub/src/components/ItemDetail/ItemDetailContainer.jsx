@@ -5,7 +5,7 @@ import ItemDetail from "./ItemDetail";
 import CartContext from "../../context/CartContext";
 
 const ItemDetailContainer = () => {
-  const [items, setItem] = useState(null);
+  const [item, setItem] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const { id } = useParams();
 
@@ -24,7 +24,7 @@ const ItemDetailContainer = () => {
       });
   }, [id]);
 
-  return <ItemDetail items={items} isLoading={isLoading} addItem={addItem} />;
+  return <ItemDetail item={item} isLoading={isLoading} addItem={addItem} />;
 };
 
 export default ItemDetailContainer;

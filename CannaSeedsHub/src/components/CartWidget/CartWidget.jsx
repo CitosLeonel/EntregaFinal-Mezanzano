@@ -7,6 +7,8 @@ const CartWidget = () => {
   const { cart } = useContext(CartContext);
   const quantity = getCartQuantity(cart);
 
+  console.log(cart);
+
   return (
     <div>
       <button type="button" className="btn btn-dark">

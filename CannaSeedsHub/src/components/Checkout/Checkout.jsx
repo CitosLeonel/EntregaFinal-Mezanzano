@@ -48,18 +48,18 @@ const Checkout = () => {
           <div>
             <h4>Products:</h4>
             <div className="card" style={{ width: "18rem" }}>
-              {cart.map((items, item) => (
-                <div key={items.id}>
-                  <div className="card-header">{items.title}</div>
+              {cart.map((item) => (
+                <div key={item.id}>
+                  <div className="card-header">{item.title}</div>
                   <ul className="list-group list-group-flush">
                     <li className="list-group-item">
                       Quantity: {item.quantity}
                     </li>
                     <li className="list-group-item">
-                      Unit Price: ${items.price}
+                      Unit price: ${item.price}
                     </li>
                     <li className="list-group-item">
-                      Subtotal: ${items.price * item.quantity}
+                      Subtotal: ${item.price * item.quantity}
                     </li>
                   </ul>
                 </div>
