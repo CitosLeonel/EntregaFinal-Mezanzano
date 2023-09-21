@@ -55,6 +55,7 @@ export const getProducts = (categoryId) => {
   });
 };
 
+// Funcion para crear orden
 export const createOrder = (orden) => {
   const db = getFirestore();
 

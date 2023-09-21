@@ -1,7 +1,9 @@
 import PropTypes from "prop-types";
-
+import { useState } from "react";
 
 const ItemDetail = ({ item, isLoading, addItem }) => {
+  const [quantity, setQuantity] = useState(1);
+
   if (isLoading) {
     return <h2>Loading product...</h2>;
   }
@@ -9,6 +11,16 @@ const ItemDetail = ({ item, isLoading, addItem }) => {
   if (!item) {
     return <h2>Product not found</h2>;
   }
+
+  const incrementQuantity = () => {
+    setQuantity(quantity + 1);
+  };
+
+  const decrementQuantity = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
 
   return (
     <div className="card mb-3" style={{ maxWidth: "540px" }}>
@@ -27,7 +39,16 @@ const ItemDetail = ({ item, isLoading, addItem }) => {
             <div className="card-footer">
               <small className="card-text">$ {item.price}</small>
               <p className="card-text">Stock: {item.stock}</p>
-              <button onClick={() => addItem(item, 1)}>agregar al carrito</button>
+
+              <button onClick={decrementQuantity}>-</button>
+
+              <span>{quantity}</span>
+
+              <button onClick={incrementQuantity}>+</button>
+
+              <button onClick={() => addItem(item, quantity)}>
+                agregar al carrito
+              </button>
             </div>
           </div>
         </div>

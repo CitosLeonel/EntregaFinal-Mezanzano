@@ -13,19 +13,28 @@ const CartProvider = ({ children }) => {
     const itemInCart = isInCart(product.id);
 
     if (itemInCart) {
-      const newCart = cart.map((item) => {
-        if (item.id === product.id) {
-          return {
-            ...item,
-            quantity: item.quantity + quantity,
-          };
-        }
+      const newQuantity = itemInCart.quantity + quantity;
 
-        return item;
-      });
-      setCart(newCart);
+      if (newQuantity <= product.stock) {
+        const newCart = cart.map((item) => {
+          if (item.id === product.id) {
+            return {
+              ...item,
+              quantity: newQuantity,
+            };
+          }
+          return item;
+        });
+        setCart(newCart);
+      } else {
+        console.log("Not enough stock available");
+      }
     } else {
-      setCart([...cart, { ...product, quantity }]);
+      if (quantity <= product.stock) {
+        setCart([...cart, { ...product, quantity }]);
+      } else {
+        console.log("Not enough stock available");
+      }
     }
   };
 

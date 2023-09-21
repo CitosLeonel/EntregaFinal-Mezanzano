@@ -4,3 +4,37 @@
     border-radius: 80px;
     border: 2px;
   }
+
+/* Estilo para el Navbar */
+.navbar {
+  background-color: #008000; /* Verde principal */
+  color: #000000; /* Negro para el texto */
+  padding: 10px 0;
+}
+
+/* Estilo para el logo */
+.navbar-brand img {
+  width: 100px; /* Ajusta el tamaño de tu logo */
+}
+
+/* Estilo para los enlaces del menú */
+.nav-link {
+  color: #000000; /* Color de texto negro */
+  font-weight: bold; /* Opcional: añade negrita */
+  transition: color 0.3s; /* Agrega una transición suave de color */
+}
+
+/* Cambia el color de los enlaces cuando se desplazan sobre ellos */
+.nav-link:hover {
+  color: #008000; /* Cambia a verde cuando se desplaza sobre el enlace */
+}
+
+/* Estilo para los elementos del carrito (puedes personalizar más si es necesario) */
+.cart-icon {
+  color: #008000; /* Color verde para el ícono del carrito */
+}
+
+/* Cambia el color del ícono del carrito cuando se desplaza sobre él */
+.cart-icon:hover {
+  color: #000000; /* Cambia a negro cuando se desplaza sobre el ícono */
+}
