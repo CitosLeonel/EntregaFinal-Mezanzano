@@ -1,4 +1,8 @@
 .cart-icon {
-    height: 50px;
-    width: 50px;
+  font-size: 2rem;
+  color: #0c6834;
+}
+
+.btn-icon {
+  border: 2px solid #c7a438;
 }

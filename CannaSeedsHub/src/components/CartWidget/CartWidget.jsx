@@ -11,8 +11,8 @@ const CartWidget = () => {
 
   return (
     <div>
-      <button type="button" className="btn btn-dark">
-      <i className={`bi bi-cart4 bi-lg ${styles["cart-icon"]}`}></i>
+      <button type="button" className={`btn btn-dark ${styles["btn-icon"]}`}>
+      <i className={`bi bi-cart4 ${styles["cart-icon"]}`}></i>
         <span className="badge rounded-pill bg-danger">
           {quantity > 0 ? quantity : ""}
         </span>
