@@ -1,11 +1,10 @@
-import styles from "./ItemList.module.css";
 import propTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
+import styles from "./ItemList.module.css";
 
 const ItemList = ({ isLoading }) => {
-  
   const [items, setItems] = useState([]);
 
   useEffect(() => {
@@ -35,8 +34,7 @@ const ItemList = ({ isLoading }) => {
 
   return (
     <div>
-      <h1>Our seeds...</h1>
-
+      <h1 className={styles["ppalTitle"]}>Our seeds...</h1>
       <div
         className={`row row-cols-1 row-cols-md-3 g-4 ${styles.cardContainer}`}
       >
@@ -53,7 +51,7 @@ const ItemList = ({ isLoading }) => {
                 <p className="card-text">{item.categoryId}</p>
               </div>
               <div className="card-footer">
-                <small className="card-text">$ {item.price}</small>
+                <small className="card-text">unit price: ${item.price}</small>
               </div>
               <Link to={`/item/${item.id}`} className="btn btn-success">
                 View Details

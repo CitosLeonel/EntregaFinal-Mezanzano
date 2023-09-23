@@ -1,4 +1,4 @@
-import "./app.css";
+
 import { Routes, Route } from "react-router-dom";
 import CartProvider from "./context/CartProvider";
 import ItemListContainer from "./components/ItemList/ItemListContainer";

@@ -1,9 +1,13 @@
+.ppalTitle {
+  font-size: 60px;
+}
+
 .cardContainer {
-    max-width: 85%;
-    margin: 0 auto;
-  }
-  
-  .cardImage {
-    width: 100%;
-    height: auto;
-  }
+  max-width: 85%;
+  margin: 0 auto;
+}
+
+.cardImage {
+  width: 100%;
+  height: auto;
+}
