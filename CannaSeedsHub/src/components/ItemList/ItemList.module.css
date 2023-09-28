@@ -1,13 +1,54 @@
+
 .ppalTitle {
   font-size: 60px;
+  font-family: "Crimson Text", serif;
+  font-weight: 700;
+  font-style: italic;
+  margin: 20px;
+  padding: 10px;
 }
 
 .cardContainer {
   max-width: 85%;
   margin: 0 auto;
+  
 }
 
-.cardImage {
+.card {
+  max-width: 85%;
+  margin: 0 auto;
+ 
+
+}
+
+.cardTitle {
+  font-size: 25px;
+  font-family: "Lobster Two", cursive;
+}
+
+.cardImg {
+  background-color: #010101;
   width: 100%;
   height: auto;
+}
+
+.cardText {
+  font-size: 20px;
+  font-family: "Crimson Text", serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.cardFooterTxt {
+  font-family: "Crimson Text", serif;
+  font-weight: bold;
+  font-size: 18px;
+ 
+}
+
+
+.isLoading {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 35px;
+  font-size: 100px;
 }

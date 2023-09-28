@@ -20,6 +20,7 @@ const ItemListContainer = () => {
   }, [categoryId]);
 
   return <ItemList items={item} isLoading={isLoading} />;
+  
 };
 
 export default ItemListContainer;

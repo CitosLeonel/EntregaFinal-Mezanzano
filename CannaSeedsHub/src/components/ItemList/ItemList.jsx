@@ -21,7 +21,7 @@ const ItemList = ({ isLoading }) => {
 
         setItems(products);
       } catch (error) {
-        console.error("Error fetching products:", error);
+        
       }
     };
 
@@ -29,7 +29,7 @@ const ItemList = ({ isLoading }) => {
   }, []);
 
   if (isLoading) {
-    return <h2>Loading products...</h2>;
+    return <h2 className="isLoading">Loading products...</h2>;
   }
 
   return (
@@ -40,18 +40,18 @@ const ItemList = ({ isLoading }) => {
       >
         {items.map((item) => (
           <div key={item.id} className="col">
-            <div className={`card h-100 ${styles.cardContainer}`}>
+            <div className={`card h-100 ${styles.card}`}>
               <img
                 src={`/images/${item.imageId}`}
-                className={`card-img-top ${styles.cardImage}`}
+                className={`card-img-top ${styles.cardImg}`}
                 alt="seed image"
               />
               <div className="card-body">
-                <h5 className="card-title">{item.title}</h5>
-                <p className="card-text">{item.categoryId}</p>
+                <h5 className={`card-title ${styles.cardTitle}`}>{item.title}</h5>
+                <p className={`card-text ${styles.cardText}`}>{item.categoryId}</p>
               </div>
-              <div className="card-footer">
-                <small className="card-text">unit price: ${item.price}</small>
+              <div className={`card-footer ${styles.cardFooter}`}>
+                <small className={`card-text ${styles.cardFooterTxt}`}>unit price: ${item.price}</small>
               </div>
               <Link to={`/item/${item.id}`} className="btn btn-success">
                 View Details

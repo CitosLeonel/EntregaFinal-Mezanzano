@@ -1,25 +1,15 @@
-.logo-img {
-    width: 150px; 
-    height: 150px;
-    border-radius: 80px;
-    border: 2px solid #c7a438;
-  }
-
-.Navbar {
-  background-color: #0c6834; 
-  color: #010101; 
-  padding: 10px 0;
+.logoImg {
+  width: 150px;
+  height: 150px;
+  border-radius: 80px;
+  border: 2px solid #c7a438;
 }
 
-
-/* Estilo para los enlaces del menú */
-.navbar .nav-link {
-  text-decoration: none;
-  color: #010101;
+.navItem {
+  font-size: 20px;
+  font-family: "Crimson Text", serif;
   font-weight: bold;
+  font-style: italic;
   transition: color 0.3s;
 }
 
-.navbar .nav-link:hover {
-  color: #0c6834;
-}

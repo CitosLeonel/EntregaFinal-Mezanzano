@@ -30,16 +30,17 @@ export const getProduct = (id) => {
 };
 
 export const getProducts = (categoryId) => {
+  
   return new Promise((resolve, reject) => {
     const db = getFirestore();
 
-    const itemCollection = collection(db, "items");
+    const itemsCollection = collection(db, "items");
 
     let q;
     if (categoryId) {
-      q = query(itemCollection, where("categoryId", "==", categoryId));
+      q = query(itemsCollection, where("categoryId", "in", [categoryId]));
     } else {
-      q = query(itemCollection);
+      q = query(itemsCollection);
     }
 
     getDocs(q)
@@ -63,3 +64,5 @@ export const createOrder = (orden) => {
 
   return addDoc(ordersCollection, orden);
 };
+
+// Crear función que reste el valor quantity para el checkout

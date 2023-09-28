@@ -17,13 +17,18 @@ const Cart = () => {
   return (
     <div>
       <div>
-        <h1 className={styles["Cart-title"]}>Cart</h1>
+        <h1 className={styles["cartTitle"]}>Cart</h1>
       </div>
 
       {cart.length === 0 ? (
-        <p>
-          Your cart is empty. <i class="bi bi-cart-x"></i>
-        </p>
+        <div>
+        <div className={styles["emptyCart"]}>
+          <p>
+            Your cart is empty. 
+          </p>
+          <i className="bi bi-bag-x-fill"></i>
+        </div>
+      </div>
       ) : (
         <>
           <table>

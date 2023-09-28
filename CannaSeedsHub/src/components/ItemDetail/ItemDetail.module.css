@@ -1,0 +1,17 @@
+
+
+.cardTitle {
+    font-size: 30px;
+    font-family: 'Lobster Two', cursive;
+}
+
+.cardText {
+    font-family: 'Crimson Text', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.cardImg {
+    background-color: #010101;
+}
