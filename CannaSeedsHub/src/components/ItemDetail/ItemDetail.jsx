@@ -25,8 +25,11 @@ const ItemDetail = ({ item, isLoading, addItem }) => {
   };
 
   return (
-    <div className="cardContainer">
-      <div className="card mb-3" style={{ maxWidth: "640px" }}>
+    <div className={styles["cardContainer"]}>
+      <div
+        className={`card mb-3 ${styles.customCard}`}
+        style={{ maxWidth: "720px" }}
+      >
         <div className="row g-0">
           <div className="col-md-4">
             <img
@@ -42,8 +45,8 @@ const ItemDetail = ({ item, isLoading, addItem }) => {
                 {item.description}
               </p>
               <div className="card-footer">
-                <small className={`card-text ${styles.cardText}`}>
-                  $ {item.price}
+                <small className={`card-text ${styles.cardFooterTxt}`}>
+                  unit price: $ {item.price}
                 </small>
                 <p className={`card-text ${styles.cardText}`}>
                   Stock: {item.stock}
@@ -51,34 +54,51 @@ const ItemDetail = ({ item, isLoading, addItem }) => {
 
                 <button
                   type="button"
-                  className="btn btn-success"
+                  className="btn btn-success text-dark border border-dark"
                   onClick={decrementQuantity}
                 >
                   <i className="bi bi-dash-lg"></i>
                 </button>
 
-                <span className="mx-2">{quantity}</span>
+                <span className="mx-2">
+                  <strong>{quantity}</strong>
+                </span>
 
                 <button
                   type="button"
-                  className="btn btn-success"
+                  className="btn btn-success text-dark border border-dark"
                   onClick={incrementQuantity}
                 >
                   <i className="bi bi-plus-lg"></i>
                 </button>
 
                 <button
-                  className="btn btn-success"
+                  className="btn btn-success text-dark fw-bold border border-dark"
                   onClick={() => {
-                    addItem(item, quantity);
-                    toast.success("Product successfully added", {
-                      position: "top-right",
-                      autoClose: 3000,
-                      gravity: bottom,
-                      hideProgressBar: false,
-                      draggable: true,
-                      oldestFirst: true,
-                    });
+                    if (item.stock === 0) {
+                      toast.error("Not enough stock available", {
+                        position: "top-right",
+                        autoClose: 3000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "dark",
+                      });
+                    } else {
+                      addItem(item, quantity);
+                      toast.success("Product successfully added", {
+                        position: "bottom-right",
+                        autoClose: 3000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "dark",
+                      });
+                    }
                   }}
                 >
                   Add to cart

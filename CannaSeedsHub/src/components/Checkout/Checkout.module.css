@@ -1,0 +1,54 @@
+.checkoutContainer {
+  background-color: #f1f1f1;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.ppalTitle {
+  font-size: 60px;
+  font-family: "Crimson Text", serif;
+  font-weight: 700;
+  font-style: italic;
+  margin: 20px;
+  padding: 10px;
+}
+
+.text {
+  font-family: "Crimson Text", serif;
+  font-weight: 400;
+  font-style: italic;
+  margin: 20px;
+  padding: 10px;
+}
+
+.formTitle {
+  font-family: "Crimson Text", serif;
+  font-weight: 700;
+  font-style: italic;
+  margin: 20px;
+  padding: 10px;
+}
+
+.customForm {
+  font-family: "Crimson Text", serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 20px;
+}
+
+.cardContainer {
+  padding: 20px;
+  margin-left: 20px;
+}
+
+.totalPurchase {
+  margin: 10px;
+  padding-left: 50px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.buttonsContainer {
+  padding: 10px;
+  margin-left: 30px;
+  margin-bottom: 20px;
+  font-family: "Courier New", Courier, monospace;
+}

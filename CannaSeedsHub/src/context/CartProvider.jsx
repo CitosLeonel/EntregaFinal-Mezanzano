@@ -27,13 +27,11 @@ const CartProvider = ({ children }) => {
         });
         setCart(newCart);
       } else {
-        console.log("Not enough stock available");
       }
     } else {
       if (quantity <= product.stock) {
         setCart([...cart, { ...product, quantity }]);
       } else {
-        console.log("Not enough stock available");
       }
     }
   };

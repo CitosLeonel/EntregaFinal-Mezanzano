@@ -33,28 +33,28 @@ const ItemList = ({ isLoading }) => {
   }
 
   return (
-    <div>
+    <div className={styles["itemListContainer"]}>
       <h1 className={styles["ppalTitle"]}>Our seeds...</h1>
       <div
         className={`row row-cols-1 row-cols-md-3 g-4 ${styles.cardContainer}`}
       >
         {items.map((item) => (
           <div key={item.id} className="col">
-            <div className={`card h-100 ${styles.card}`}>
+            <div className={`card h-100 w-75 ${styles.card}`}>
               <img
                 src={`/images/${item.imageId}`}
                 className={`card-img-top ${styles.cardImg}`}
                 alt="seed image"
               />
-              <div className="card-body">
+              <div className="card-bodycd">
                 <h5 className={`card-title ${styles.cardTitle}`}>{item.title}</h5>
                 <p className={`card-text ${styles.cardText}`}>{item.categoryId}</p>
               </div>
-              <div className={`card-footer ${styles.cardFooter}`}>
+              <div className={`card-footer border-dark ${styles.cardFooter}`}>
                 <small className={`card-text ${styles.cardFooterTxt}`}>unit price: ${item.price}</small>
               </div>
-              <Link to={`/item/${item.id}`} className="btn btn-success">
-                View Details
+              <Link to={`/item/${item.id}`} className="btn btn-success border border-dark text-dark fw-bold">
+                View details
               </Link>
             </div>
           </div>
