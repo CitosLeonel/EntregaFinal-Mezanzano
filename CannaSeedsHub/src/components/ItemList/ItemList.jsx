@@ -20,9 +20,7 @@ const ItemList = ({ isLoading }) => {
         }));
 
         setItems(products);
-      } catch (error) {
-        
-      }
+      } catch (error) {}
     };
 
     fetchProducts();
@@ -47,13 +45,22 @@ const ItemList = ({ isLoading }) => {
                 alt="seed image"
               />
               <div className="card-bodycd">
-                <h5 className={`card-title ${styles.cardTitle}`}>{item.title}</h5>
-                <p className={`card-text ${styles.cardText}`}>{item.categoryId}</p>
+                <h5 className={`card-title ${styles.cardTitle}`}>
+                  {item.title}
+                </h5>
+                <p className={`card-text ${styles.cardText}`}>
+                  {item.categoryId}
+                </p>
               </div>
               <div className={`card-footer border-dark ${styles.cardFooter}`}>
-                <small className={`card-text ${styles.cardFooterTxt}`}>unit price: ${item.price}</small>
+                <small className={`card-text ${styles.cardFooterTxt}`}>
+                  unit price: ${item.price}
+                </small>
               </div>
-              <Link to={`/item/${item.id}`} className="btn btn-success border border-dark text-dark fw-bold">
+              <Link
+                to={`/item/${item.id}`}
+                className="btn btn-success border border-dark text-dark fw-bold"
+              >
                 View details
               </Link>
             </div>

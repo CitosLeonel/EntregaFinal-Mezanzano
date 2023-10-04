@@ -58,7 +58,7 @@ const Checkout = () => {
         setOrderId(docRef.id);
         setIsLoading(false);
         clear();
-        setPurchaseCompleted(true); // Marcamos la compra como completada
+        setPurchaseCompleted(true);
       })
       .catch((error) => {
         console.error("Error creating order", error);
@@ -84,7 +84,7 @@ const Checkout = () => {
               </label>
               <input
                 type="text"
-                className="form-control"
+                className={`form-control ${styles.inputField}`}
                 id="name"
                 name="name"
                 value={formData.name}
@@ -98,7 +98,7 @@ const Checkout = () => {
               </label>
               <input
                 type="tel"
-                className="form-control"
+                className={`form-control ${styles.inputField}`}
                 id="phone"
                 name="phone"
                 value={formData.phone}
@@ -112,7 +112,7 @@ const Checkout = () => {
               </label>
               <input
                 type="email"
-                className="form-control"
+                className={`form-control ${styles.inputField}`}
                 id="email"
                 name="email"
                 value={formData.email}
@@ -129,7 +129,22 @@ const Checkout = () => {
           Purchase summary
         </h3>
       ) : (
-        orderId && <p className={styles["text"]}>The order id is: {orderId}</p>
+        <>
+          <div className="text-center text-dark fw-bold">
+            <p>Thank you for your purchase {formData.name}!</p>
+            <br />
+            <p>Your order ID is: {orderId}</p>
+          </div>
+
+          <div className={styles["buttonsContainer"]}>
+            <Link
+              className="btn btn-success border border-dark text-dark fw-bold"
+              to="/"
+            >
+              Continue Shopping
+            </Link>
+          </div>
+        </>
       )}
 
       {!purchaseCompleted && (
@@ -137,7 +152,9 @@ const Checkout = () => {
           <div>
             <h4 className={styles["text"]}>Products:</h4>
 
-            <div className={`row row-cols-1 row-cols-md-3 g-4 ${styles.cardContainer}`}>
+            <div
+              className={`row row-cols-1 row-cols-md-3 g-4 ${styles.cardContainer}`}
+            >
               {cart.map((item) => (
                 <div key={item.id} className="col">
                   <div className="card" style={{ width: "18rem" }}>
