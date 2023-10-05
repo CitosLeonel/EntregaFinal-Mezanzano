@@ -38,6 +38,7 @@ Welcome to our premier cannabis seeds e-commerce platform. Discover a wide varie
   ### How to set up the project
   
   **Getting Started**
+  
 *To start working with this project, follow these steps:*
 
 1.  Clone the repository from GitHub:
